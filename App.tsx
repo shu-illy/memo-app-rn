@@ -6,7 +6,10 @@ import { Hello } from "./src/components/Hello";
 const App = () => {
   return (
     <View style={styles.container}>
-      <Hello />
+      <Hello bang>World</Hello>
+      <Hello bang={false} style={{ fontSize: 16 }}>
+        Small World
+      </Hello>
       <Text>Open up App.tsx to start working on your app!</Text>
       {/* eslint-disable-next-line react/style-prop-object */}
       <StatusBar style="auto" />

@@ -1,10 +1,32 @@
-import React from "react";
-import { Text, View } from "react-native";
+import React, { FC } from "react";
+import { StyleSheet, Text, View } from "react-native";
 
-export const Hello = () => {
+type Props = {
+  children: string;
+  bang: boolean;
+  style?: any;
+};
+
+export const Hello: FC<Props> = ({ children, bang, style }) => {
   return (
     <View>
-      <Text>Hello</Text>
+      <Text style={[styles.text, style]}>{`Hello ${children}${
+        bang && "!"
+      }`}</Text>
     </View>
   );
 };
+
+Hello.defaultProps = {
+  style: null,
+};
+
+const styles = StyleSheet.create({
+  text: {
+    color: "#ffffff",
+    backgroundColor: "blue",
+    fontSize: 40,
+    fontWeight: "bold",
+    padding: 16,
+  },
+});
