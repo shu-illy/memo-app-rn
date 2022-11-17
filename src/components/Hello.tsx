@@ -11,7 +11,7 @@ export const Hello: FC<Props> = ({ children, bang, style }) => {
   return (
     <View>
       <Text style={[styles.text, style]}>{`Hello ${children}${
-        bang && "!"
+        bang ? "!" : ''
       }`}</Text>
     </View>
   );
