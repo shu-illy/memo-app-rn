@@ -1,26 +1,19 @@
-import React from "react";
-import { StyleSheet, View } from "react-native";
-import { AppBar } from "./src/components/AppBar";
-import { CircleButton } from "./src/components/CircleButton";
-import { MemoList } from "./src/components/MemoList";
+import React, { FC } from "react";
+import { StyleSheet, Text, View } from "react-native";
 
-const App = () => {
+type Props = {
+  children: string;
+};
+
+export const CircleButton: FC<Props> = ({ children }) => {
   return (
-    <View style={styles.container}>
-      <AppBar />
-
-      <MemoList />
-
-      <CircleButton>+</CircleButton>
+    <View style={styles.circleButton}>
+      <Text style={styles.circleButtonLabel}>{children}</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#F0F4F8",
-  },
   circleButton: {
     backgroundColor: "#467FD3",
     width: 64,
@@ -37,6 +30,9 @@ const styles = StyleSheet.create({
     shadowRadius: 8, // iOSにしか適用できないプロパティ
     elevation: 8, // Androidにしか適用できないプロパティ
   },
+  circleButtonLabel: {
+    color: "#ffffff",
+    fontSize: 40,
+    lineHeight: 40,
+  },
 });
-
-export default App;
