@@ -16,7 +16,7 @@ export const MemoDetailScreen = () => {
           {`買い物リスト\n書体やレイアウトなどを確認するために用います。\n本文用なので使い方を間違えると不自然に見えることもありますので要注意。`}
         </Text>
       </ScrollView>
-      <CircleButton style={{ top: 160, bottom: "auto" }}>+</CircleButton>
+      <CircleButton iconName="edit-2" style={{ top: 160, bottom: "auto" }} />
     </View>
   );
 };

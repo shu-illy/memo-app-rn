@@ -9,7 +9,7 @@ export const MemoListScreen: FC = () => {
     <View style={styles.container}>
       <AppBar />
       <MemoList />
-      <CircleButton>+</CircleButton>
+      <CircleButton iconName="plus" />
     </View>
   );
 };

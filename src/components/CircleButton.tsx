@@ -1,15 +1,16 @@
+import { Feather } from "@expo/vector-icons";
 import React, { FC } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 type Props = {
-  children: string;
   style?: any;
+  iconName: "plus" | "check" | "edit-2";
 };
 
-export const CircleButton: FC<Props> = ({ children, style }) => {
+export const CircleButton: FC<Props> = ({ style, iconName }) => {
   return (
     <View style={[styles.circleButton, style]}>
-      <Text style={styles.circleButtonLabel}>{children}</Text>
+      <Feather name={iconName} size={32} color="white" />
     </View>
   );
 };
