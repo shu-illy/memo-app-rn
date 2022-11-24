@@ -15,7 +15,12 @@ export const MemoEditScreen = () => {
       <View style={styles.inputContainer}>
         <TextInput value="買い物リスト" multiline style={styles.input} />
       </View>
-      <CircleButton iconName="check" />
+      <CircleButton
+        iconName="check"
+        onPress={() => {
+          // Alert.alert("Pressed!");
+        }}
+      />
     </KeyboardAvoidingView>
   );
 };

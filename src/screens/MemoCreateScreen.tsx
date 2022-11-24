@@ -21,7 +21,12 @@ export const MemoCreateScreen = () => {
           onSubmitEditing={Keyboard.dismiss}
         />
       </View>
-      <CircleButton iconName="check" />
+      <CircleButton
+        iconName="check"
+        onPress={() => {
+          // Alert.alert("Pressed!");
+        }}
+      />
     </KeyboardAvoidingView>
   );
 };
