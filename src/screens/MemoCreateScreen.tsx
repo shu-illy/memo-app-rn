@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Keyboard,
   KeyboardAvoidingView,
   StyleSheet,
   TextInput,
@@ -13,7 +14,12 @@ export const MemoCreateScreen = () => {
     <KeyboardAvoidingView style={styles.container} behavior="height">
       <AppBar />
       <View style={styles.inputContainer}>
-        <TextInput value="" multiline style={styles.input} />
+        <TextInput
+          value=""
+          multiline
+          style={styles.input}
+          onSubmitEditing={Keyboard.dismiss}
+        />
       </View>
       <CircleButton iconName="check" />
     </KeyboardAvoidingView>
