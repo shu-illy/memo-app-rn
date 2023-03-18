@@ -16,12 +16,22 @@ export const SignUpScreen: FC<Props> = ({ navigation }) => {
         <Button
           label="Submit"
           onPress={() => {
-            navigation.navigate("MemoList");
+            navigation.reset({
+              index: 0,
+              routes: [{ name: "MemoList" }],
+            });
           }}
         />
         <View style={styles.footer}>
           <Text style={styles.footerText}>Already registered?</Text>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.reset({
+                index: 0,
+                routes: [{ name: "LogIn" }],
+              });
+            }}
+          >
             <Text style={styles.footerLink}>Log in.</Text>
           </TouchableOpacity>
         </View>
