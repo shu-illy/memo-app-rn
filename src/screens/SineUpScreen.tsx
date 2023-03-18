@@ -1,5 +1,5 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { RootStackParamList } from "../../App";
 import { Button } from "../components/Button";
@@ -7,12 +7,34 @@ import { Button } from "../components/Button";
 type Props = NativeStackScreenProps<RootStackParamList, "SignUp">;
 
 export const SignUpScreen: FC<Props> = ({ navigation }) => {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   return (
     <View style={styles.container}>
       <View style={styles.inner}>
         <Text style={styles.title}>Sign Up</Text>
-        <TextInput value="Email Address" style={styles.input} />
-        <TextInput value="Password" style={styles.input} />
+        <TextInput
+          value={email}
+          style={styles.input}
+          onChangeText={(text) => {
+            setEmail(text);
+          }}
+          autoCapitalize="none"
+          keyboardType="email-address"
+          placeholder="Email Address"
+          textContentType="emailAddress"
+        />
+        <TextInput
+          value={password}
+          style={styles.input}
+          onChangeText={(text) => {
+            setPassword(text);
+          }}
+          autoCapitalize="none"
+          placeholder="Password"
+          secureTextEntry
+          textContentType="password"
+        />
         <Button
           label="Submit"
           onPress={() => {
