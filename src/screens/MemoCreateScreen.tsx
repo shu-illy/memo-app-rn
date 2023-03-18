@@ -1,30 +1,21 @@
-import React from "react";
-import {
-  Keyboard,
-  KeyboardAvoidingView,
-  StyleSheet,
-  TextInput,
-  View,
-} from "react-native";
-import { AppBar } from "../components/AppBar";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import React, { FC } from "react";
+import { Keyboard, KeyboardAvoidingView, StyleSheet, TextInput, View } from "react-native";
+import { RootStackParamList } from "../../App";
 import { CircleButton } from "../components/CircleButton";
 
-export const MemoCreateScreen = () => {
+type Props = NativeStackScreenProps<RootStackParamList, "MemoCreate">;
+
+export const MemoCreateScreen: FC<Props> = ({ navigation }) => {
   return (
     <KeyboardAvoidingView style={styles.container} behavior="height">
-      <AppBar />
       <View style={styles.inputContainer}>
-        <TextInput
-          value=""
-          multiline
-          style={styles.input}
-          onSubmitEditing={Keyboard.dismiss}
-        />
+        <TextInput value="" multiline style={styles.input} onSubmitEditing={Keyboard.dismiss} />
       </View>
       <CircleButton
         iconName="check"
         onPress={() => {
-          // Alert.alert("Pressed!");
+          navigation.goBack();
         }}
       />
     </KeyboardAvoidingView>

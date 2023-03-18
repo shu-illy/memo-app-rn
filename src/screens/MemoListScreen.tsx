@@ -1,15 +1,22 @@
+import { NativeStackScreenProps } from "@react-navigation/native-stack/lib/typescript/src/types";
 import React, { FC } from "react";
 import { StyleSheet, View } from "react-native";
-import { AppBar } from "../components/AppBar";
 import { CircleButton } from "../components/CircleButton";
 import { MemoList } from "../components/MemoList";
+import { RootStackParamList } from "../../App";
 
-export const MemoListScreen: FC = () => {
+type Props = NativeStackScreenProps<RootStackParamList, "MemoList">;
+
+export const MemoListScreen: FC<Props> = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <AppBar />
       <MemoList />
-      <CircleButton iconName="plus" onPress={() => {}} />
+      <CircleButton
+        iconName="plus"
+        onPress={() => {
+          navigation.navigate("MemoCreate");
+        }}
+      />
     </View>
   );
 };

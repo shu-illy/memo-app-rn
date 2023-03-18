@@ -1,18 +1,14 @@
-import React from "react";
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import { AppBar } from "../components/AppBar";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import React, { FC } from "react";
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { RootStackParamList } from "../../App";
 import { Button } from "../components/Button";
 
-export const SignUpScreen = () => {
+type Props = NativeStackScreenProps<RootStackParamList, "SignUp">;
+
+export const SignUpScreen: FC<Props> = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <AppBar />
       <View style={styles.inner}>
         <Text style={styles.title}>Sign Up</Text>
         <TextInput value="Email Address" style={styles.input} />
@@ -20,7 +16,7 @@ export const SignUpScreen = () => {
         <Button
           label="Submit"
           onPress={() => {
-            // Alert.alert("submit!!");
+            navigation.navigate("MemoList");
           }}
         />
         <View style={styles.footer}>

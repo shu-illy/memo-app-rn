@@ -1,24 +1,21 @@
+import { NativeStackScreenProps } from "@react-navigation/native-stack/lib/typescript/src/types";
 import React from "react";
-import {
-  KeyboardAvoidingView,
-  StyleSheet,
-  TextInput,
-  View,
-} from "react-native";
-import { AppBar } from "../components/AppBar";
+import { KeyboardAvoidingView, StyleSheet, TextInput, View } from "react-native";
 import { CircleButton } from "../components/CircleButton";
+import { RootStackParamList } from "../../App";
 
-export const MemoEditScreen = () => {
+type Props = NativeStackScreenProps<RootStackParamList, "MemoEdit">;
+
+export const MemoEditScreen: React.FC<Props> = ({ navigation }) => {
   return (
     <KeyboardAvoidingView style={styles.container} behavior="height">
-      <AppBar />
       <View style={styles.inputContainer}>
         <TextInput value="買い物リスト" multiline style={styles.input} />
       </View>
       <CircleButton
         iconName="check"
         onPress={() => {
-          // Alert.alert("Pressed!");
+          navigation.goBack();
         }}
       />
     </KeyboardAvoidingView>
